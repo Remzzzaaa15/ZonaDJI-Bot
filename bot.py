@@ -45,7 +45,7 @@ def start_dialog(call):
         message_id=call.message.message_id,
         text="*Я помогаю в решении частых проблем в работе.*\n"
              "*Важно вводить в точности как на пульте.*\n"
-             "В случае проблем пиши @Remzaa",
+             "В случае проблем пиши @Remzzaa",
         parse_mode="Markdown"
     )
     msg = bot.send_message(
