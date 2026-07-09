@@ -33,7 +33,7 @@ def get_end_keyboard():
 def start(message):
     bot.send_message(
         message.chat.id,
-        "Привет! Я бот помощи по технике.",
+        "Привет , братец! Я бот помощник.",
         reply_markup=get_start_keyboard()
     )
 
@@ -42,14 +42,14 @@ def start_dialog(call):
     bot.edit_message_text(
         chat_id=call.message.chat.id,
         message_id=call.message.message_id,
-        text="*Этот бот помогает в решении частых проблем в работе.*\n"
+        text="*Я помогаю в решении частых проблем в работе.*\n"
              "*Важно вводить в точности как на пульте.*\n"
              "В случае проблем пиши @Remzaa",
         parse_mode="Markdown"
     )
     bot.send_message(
         call.message.chat.id,
-        "Теперь пиши свою проблему:",
+        "Ниже пиши свою проблему:",
         reply_markup=get_end_keyboard()
     )
 
@@ -58,7 +58,7 @@ def end_dialog(call):
     bot.edit_message_text(
         chat_id=call.message.chat.id,
         message_id=call.message.message_id,
-        text="Диалог завершён. Если что-то ещё понадобится — пиши /start"
+        text="Диалог завершён. Если что-то ещё понадобится - нажми /start"
     )
 
 @bot.message_handler(func=lambda message: True)
@@ -70,7 +70,7 @@ def handle_message(message):
     try:
         member = bot.get_chat_member(CLOSED_GROUP_ID, user_id)
         if member.status not in ['member', 'administrator', 'creator']:
-            bot.reply_to(message, "Чтобы задавать вопросы, нужно быть участником закрытой группы @ZonaDJI.")
+            bot.reply_to(message, "Иди нахрен хохол,тебе тут не рады")
             return
     except:
         bot.reply_to(message, "Ошибка проверки подписки.")
@@ -79,7 +79,7 @@ def handle_message(message):
     if text in knowledge:
         bot.reply_to(message, knowledge[text], reply_markup=get_end_keyboard())
     else:
-        bot.reply_to(message, "Извини, я пока не знаю ответ на этот вопрос.", reply_markup=get_end_keyboard())
+        bot.reply_to(message, "Извини, я пока не знаю ответ на этот вопрос для скорейшего моего обучения напишитие моему хозяину.", reply_markup=get_end_keyboard())
 
 print("Бот запущен...")
 bot.polling()
