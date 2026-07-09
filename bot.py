@@ -96,7 +96,7 @@ def handle_message(message):
         msg = bot.reply_to(message, knowledge[text], reply_markup=get_end_keyboard())
         last_bot_message[user_id] = msg.message_id
     else:
-        msg = bot.reply_to(message, "Извини, я пока не знаю ответ на этот вопрос. Для скорейшего обучения напиши моему хозяину @Remzaa.", reply_markup=get_end_keyboard())
+        msg = bot.reply_to(message, "Извини, я пока не знаю ответ на этот вопрос. Для скорейшего обучения напиши моему хозяину @Remzzaa.", reply_markup=get_end_keyboard())
         last_bot_message[user_id] = msg.message_id
 
 print("Бот запущен...")
